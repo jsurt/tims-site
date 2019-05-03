@@ -3,24 +3,14 @@
     background-size: cover;
     background-position-y: -100px;
   }
-  .in-mobile-menu {
-    display: none;
-  }
-  .menu-icon-li {
-    display: block;
-    padding-right: 5px;
-  }
   .home-h1 {
     top: 60%;
   }
+  .social-media-div {
+    width: 250px;
+  }
   .typewriter-words-dash {
     margin-left: 20px;
-  }
-}
-
-@media screen and (min-width: 415px) {
-  .menu-icon-li {
-    display: none;
   }
 }
 
@@ -36,9 +26,6 @@
   .home-h1, .js-typewriter-words {
     display: inline;
   }
-  .nav-list > .nav-li:not(.home-li) {
-    padding-left: 30px;
-  }
 }
 
 @media screen and (min-width: 960px) {
@@ -50,8 +37,5 @@
 @media screen and (min-width: 1260px) {
   .home-header {
     font-size: 250%;
-  }
-  .home-h1 {
-    top: 48%;
   }
 }

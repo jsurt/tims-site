@@ -10,21 +10,24 @@ html, body {
 
 .wrapper {
   height: 100%;
+  background: #000000;
 }
 
 .navigation {
   width: 100%;
+  height: 45px;
   position: absolute;
-  top: 0;
+  top: 45px;
   left: 0;
-  background: #000000a3;
+  background: #000000;
 }
 
 .nav-list {
+  margin-top: 5px;
   padding: 0px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: stretch;
   list-style: none;
 }
@@ -32,6 +35,12 @@ html, body {
 .nav-li {
   margin-left: 10px;
   margin-right: 10px;
+  padding-left: 20px;
+  border-left: 1px solid #ffffff;
+}
+
+.nav-li:first-child {
+  border-left: none;
 }
 
 .home-li {
@@ -52,10 +61,6 @@ html, body {
   border-radius: 50px;
 }
 
-i {
-  display: none;
-}
-
 .top-half-wrap, .bottom-half-wrap {
   width: 100%;
   margin: 0px;
@@ -65,14 +70,14 @@ i {
 
 .top-half-wrap {
   height: 55%;
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   align-items: stretch;
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
   background-position-y: -100px;
-  background-image: url(./images/dallas-skyline-night1.png);
+  background-image: url(./images/dallas-skyline-night1.png); */
 }
 
 .opaque-background1, .opaque-background2 {
@@ -84,7 +89,6 @@ i {
 .bottom-half-wrap {
   height: 45%;
   background: url(./images/dark-triangles.png);
-  border-top: 1px solid #ffffff;
 }
 
 .home-header {
@@ -97,8 +101,6 @@ i {
 
 .home-h1 {
   font-weight: 100;
-  position: relative;
-  top: 50%;
 }
 
 .home-h1, .js-typewriter-words, .typewriter-words-dash {
@@ -138,3 +140,25 @@ i {
   font-size: 12px;
 }
 
+.social-media-div {
+  width: 320px;
+  height: 45px;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: transparent;
+}
+
+.social-media-logo.youtube {
+  width: 31px;
+}
+
+.social-media-logo.soundcloud {
+  width: 28px;
+}
+
+.social-media-logo.newgrounds {
+  width: 24px;
+  border-radius: 5px;
+}

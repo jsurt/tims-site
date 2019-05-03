@@ -1,32 +1,29 @@
 "use strict";
-let mobileMenuVisible = false;
+let isSmallDevice = false;
 
-$(".menu-icon-a").on("click touchstart", event => {
-  event.preventDefault();
-  console.log(mobileMenuVisible);
-  if (!mobileMenuVisible) {
-    $(".home-li").fadeOut(500);
-    $(".in-mobile-menu").show(500);
-    showMenuIconAnimation();
-    mobileMenuVisible = true;
-  } else {
-    $(".home-li").fadeIn(500);
-    $(".in-mobile-menu").hide(500);
-    hideMenuIconAnimation();
-    mobileMenuVisible = false;
-  }
-});
+// $(".menu-icon-a").on("click touchstart", event => {
+//   event.preventDefault();
+//   console.log(mobileMenuVisible);
+//   if (!mobileMenuVisible) {
+//     $(".home-li").fadeOut(500);
+//     $(".in-mobile-menu").show(500);
+//     showMenuIconAnimation();
+//     mobileMenuVisible = true;
+//   } else {
+//     $(".home-li").fadeIn(500);
+//     $(".in-mobile-menu").hide(500);
+//     hideMenuIconAnimation();
+//     mobileMenuVisible = false;
+//   }
+// });
 
 const trackResize = () => {
   $(window).resize(() => {
     const width = $(window).width();
-    if (width >= 415) {
-      $(".in-mobile-menu").show();
-      mobileMenuVisible = true;
+    if (width <= 650) {
+      isSmallDevice = true;
     } else {
-      $(".in-mobile-menu").hide();
-      hideMenuIconAnimation();
-      mobileMenuVisible = false;
+      isSmallDevice = false;
     }
   });
 };
@@ -97,21 +94,69 @@ const initiateTypeWriter = () => {
 };
 
 //Change background
-const dallasSkylineDusk1 = "../images/dallas-skyline-dusk1.png";
-const dallasSkylineNight1 = "../images/dallas-skyline-night1.png";
-const backgroundImages = [dallasSkylineDusk1, dallasSkylineNight1];
+const slideshowImage1 = "../images/soundcloud-thumbnails-img-min.jpg";
+const slideshowImage2 = "../images/youtube-thumbnail1.png";
 
-const cycleBackgrounds = (images, index) => {
+const backgroundImages = [
+  {
+    src: "../images/new-soundcloud-thumbnails-img-min.jpg",
+    href: "https://soundcloud.com/timothy-freeman-2",
+    slideTitle: "iNiNEPT on SoundCloud"
+  },
+  {
+    src: "../images/youtube-thumbnail1.png",
+    href: "https://www.youtube.com/watch?v=36-5_4p7j0c",
+    slideTitle: "Hand on My Rifle (Music Video)"
+  },
+  {
+    src: "../images/cryingInRain-slide.png",
+    href: "https://www.youtube.com/watch?v=xD7qDB-ge-U",
+    slideTitle: "Crying in the Rain (Music Video)"
+  }
+];
+
+const initiateSlideshow = (images, index) => {
+  $(".slides").css("backgroundImage", `url(${images[index].src})`);
+  $(".slide-link").attr("href", images[index].href);
+  $(".slide-title").text(images[index].slideTitle);
+  index++;
+  slideshow(images, index);
+};
+
+const slideshow = (images, index) => {
+  const { src, href, slideTitle } = images[index];
+  if (
+    $(window).width() <= 414 &&
+    src === "../images/new-soundcloud-thumbnails-img-min.jpg"
+  ) {
+    $(".slides").css("background-position", "center");
+  } else {
+    $(".slides").css("background-position", "left");
+  }
   const numberOfBackgrounds = images.length;
   setTimeout(() => {
-    $(".top-half-wrap").css("backgroundImage", `url(${images[index]})`);
+    $(".slides").css("backgroundImage", `url(${src})`);
+    $(".slide-link").attr("href", href);
+    $(".slide-title").text(slideTitle);
     index = (index + 1) % numberOfBackgrounds;
-    cycleBackgrounds(images, index);
+    slideshow(images, index);
   }, 10000);
 };
 
 $(() => {
   trackResize();
   initiateTypeWriter();
-  //cycleBackgrounds(backgroundImages, 0);
+  initiateSlideshow(backgroundImages, 0);
+  // slideshowControls();
 });
+
+const slideshowControls = () => {
+  $("#left-slide-arrow").on("click touchstart", e => {
+    index = (index - 1) % numberOfBackgrounds;
+    slideshow(images, index);
+  });
+  $("#right-slide-arrow").on("click touchstart", e => {
+    index = (index + 1) % numberOfBackgrounds;
+    slideshow(images, index);
+  });
+};

@@ -7,69 +7,74 @@
   <title>Tim Freeman - Home</title>
   <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
   <link rel="stylesheet" href="main.css">
-  <link rel="stylesheet" href="media-queries.css">
+  <link rel="stylesheet" href="slides.css">
   <link rel="stylesheet" href="js-styles.css">
+  <link rel="stylesheet" href="media-queries.css">
 </head>
 <body>
   
   <div class="wrapper">
-
+      <div class="social-media-div">
+          <a class="social-media-link youtube" href="https://www.youtube.com/channel/UCMbMQhx1mcLwQNm6B98ksWA" target="_blank">
+            <img class="social-media-logo youtube" src="./images/youtube-icon-color.png" alt="YouTube logo">
+          </a>
+          <a class="social-media-link soundcloud" href="" target="_blank">
+              <img class="social-media-logo soundcloud" src="./images/soundcloud-icon-color.png" alt="SoundCloud logo">
+          </a>
+          <a class="social-media-link newgrounds" href="" target="_blank">
+              <img class="social-media-logo newgrounds" src="./images/newgrounds-icon-color.png" alt="Newgrounds logo">
+          </a>
+        </div>
       <nav class="navigation">
           <ul class="nav-list">
-            <li class="nav-li home-li">
-              <a href="" class="nav-link">
-                <img class="nav-home-logo" src="./images/ininept-logo.jpg" alt="Ininept logo">
-              </a>
+            <li class="nav-li in-mobile-menu">
+                <a href="" class="nav-link">Video</a>
             </li>
-              <li class="nav-li in-mobile-menu">
-                  <a href="" class="nav-link">Video</a>
-              </li>
-              <li class="nav-li in-mobile-menu">
-                <a href="" class="nav-link">Music</a>
-              </li>
-              <li class="nav-li in-mobile-menu">
-                  <a href="" class="nav-link">About</a>
-              </li>
-              <li class="nav-li in-mobile-menu">
-                  <a href="" class="nav-link">Contact</a>
-              </li>
-              <li class="menu-icon-li">
-                <a href="" class="menu-icon-a">
-                    <!-- <i class="fas fa-bars .menu-icon"></i> -->
-                    <div class="menu-icon-line top"></div>
-                    <div class="menu-icon-line middle"></div>
-                    <div class="menu-icon-line bottom"></div>
-                </a>
-              </li>
+            <li class="nav-li in-mobile-menu">
+              <a href="" class="nav-link">Music</a>
+            </li>
+            <li class="nav-li in-mobile-menu">
+                <a href="" class="nav-link">About</a>
+            </li>
+            <li class="nav-li in-mobile-menu">
+                <a href="" class="nav-link">Contact</a>
+            </li>
           </ul>
       </nav>
 
     <div class="top-half-wrap">
-      <div class="opaque-background1">
-
-        <header class="home-header">
-          <h1 class="home-h1">
-            Tim Freeman 
-            <br />
-            <!-- <div class="typewriter-words-dash">The</div> -->
-            - <div class="js-typewriter-words" data-wait="3000" data-words='["Songwriter", "Audio Producer", "Director", "Editor"]'></div>
-          </h1>
-        </header>
-
+      <div class="slides-wrap">
+        <a class="slide-link" href="" target="_blank">
+          <div class="slides">
+          </div>
+        </a>
+        <div class="slide-controls">
+            <p class="slide-title"></p>
+            <input id="left-slide-arrow" class="slide-arrow" type="image" src="../images/slideshow-arrow.png">
+            <input id="right-slide-arrow" class="slide-arrow" type="image" src="../images/slideshow-arrow.png">
+        </div>
       </div>
+
     </div><!--end of .top-half-wrap-->
     <div class="bottom-half-wrap">
       <div class="opaque-background2">
-        <div class="social-media-div">
 
-        </div>
+        <header class="home-header">
+            <h1 class="home-h1">
+              Tim Freeman, the <div class="js-typewriter-words" data-wait="3000" data-words='["Songwriter", "Producer", "Director", "Editor"]'></div>
+            </h1>
+        </header>
+
         <footer class="home-footer">
           <!-- <p class="copyright-p">&copy;Copyright 2019, Jack Surtees</p> -->
         </footer>
+
+
       </div>
-    </div><!--end of .bottom-half-wrap--
+    </div><!--end of .bottom-half-wrap-->
   </div><!--end of .wrapper-->
 
 </body>
