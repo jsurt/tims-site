@@ -72,7 +72,7 @@ i {
   background-size: cover;
   background-position: center;
   background-position-y: -100px;
-  background-image: url(./images/dallas-skyline-night1.png);
+  background-image: url(../images/dallas-skyline-night1.png);
 }
 
 .opaque-background1, .opaque-background2 {
@@ -83,7 +83,7 @@ i {
 
 .bottom-half-wrap {
   height: 45%;
-  background: url(./images/dark-triangles.png);
+  background: url(../images/dark-triangles.png);
   border-top: 1px solid #ffffff;
 }
 
