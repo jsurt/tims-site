@@ -1,0 +1,137 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  background: #dedede;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  height: 100%;
+}
+
+.navigation {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000000a3;
+}
+
+.nav-list {
+  padding: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: stretch;
+  list-style: none;
+}
+
+.nav-li {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.home-li {
+  margin-right: auto;
+}
+
+.nav-link {
+  font-family: 'Raleway', sans-serif;
+  text-decoration: none;
+  color: #ffffff;
+  /* color: #dbff4e; */
+}
+
+.home-link-icon {
+  width: 40px;
+}
+
+i {
+  display: none;
+}
+
+.top-half-wrap, .bottom-half-wrap {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  border: #333333; 
+}
+
+.top-half-wrap {
+  height: 55%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-position-y: -100px;
+  background-image: url(../images/dallas-skyline-night1.png);
+}
+
+.opaque-background1, .opaque-background2 {
+  width: 100%;
+  height: 100%;
+  background-color: #0000008a;
+}
+
+.bottom-half-wrap {
+  height: 45%;
+  background: url(../images/dark-triangles.png);
+  border-top: 1px solid #ffffff;
+}
+
+.home-header {
+  height: 100%;
+  padding-left: 10px;
+  border-radius: 5px;
+  color: #ffffff;
+  font-family: 'Abel', sans-serif;
+}
+
+.home-h1 {
+  font-weight: 100;
+  position: relative;
+  top: 50%;
+}
+
+.home-h1, .js-typewriter-words, .typewriter-words-dash {
+  display: inline-block;
+}
+
+.js-typewriter-words {
+  border-bottom: 2px solid #dbff4e;;
+}
+
+/* .typewriter-words-dash {
+  margin-left: 50px;
+} */
+
+/* .home-background-image {
+  height: 100%;
+} */
+
+/* For menu icon */
+.menu-icon-line {
+  width: 18px;
+  height: 3px;
+  background: #ffffff;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.home-footer {
+  width: 175px;
+  margin: auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #dfdfdf;
+  font-size: 12px;
+}
+
