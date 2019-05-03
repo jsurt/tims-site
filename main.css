@@ -45,8 +45,11 @@ html, body {
   /* color: #dbff4e; */
 }
 
-.home-link-icon {
+.nav-home-logo {
   width: 40px;
+  position: absolute;
+  top: 5px;
+  border-radius: 50px;
 }
 
 i {
@@ -103,7 +106,7 @@ i {
 }
 
 .js-typewriter-words {
-  border-bottom: 2px solid #dbff4e;;
+  border-bottom: 2px solid #fe0000;
 }
 
 /* .typewriter-words-dash {
