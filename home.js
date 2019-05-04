@@ -122,20 +122,21 @@ const initiateSlideshow = (images, index) => {
 
 const slideshow = (images, index) => {
   const { src, href, slideTitle } = images[index];
-  if (
-    $(window).width() <= 414 &&
-    src === "../images/new-soundcloud-thumbnails-img-min.jpg"
-  ) {
-    $(".slides").css("background-position", "center");
-  } else {
-    $(".slides").css("background-position", "left");
-  }
   const numberOfBackgrounds = images.length;
   setTimeout(() => {
     $(".slides").css("backgroundImage", `url(${src})`);
     $(".slide-link").attr("href", href);
     $(".slide-title").text(slideTitle);
     index = (index + 1) % numberOfBackgrounds;
+    if (
+      $(window).width() <= 414 &&
+      src === "./images/crying-in-the-rain-slide.png"
+    ) {
+      console.log("bingo");
+      $(".slides").css("background-position", "45%");
+    } else {
+      $(".slides").css("background-position", "left");
+    }
     slideshow(images, index);
   }, 10000);
 };
