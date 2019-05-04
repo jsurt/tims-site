@@ -94,22 +94,19 @@ const initiateTypeWriter = () => {
 };
 
 //Change background
-const slideshowImage1 = "../images/soundcloud-thumbnails-img-min.jpg";
-const slideshowImage2 = "../images/youtube-thumbnail1.png";
-
 const backgroundImages = [
   {
-    src: "../images/new-soundcloud-thumbnails-img-min.jpg",
+    src: "./images/new-soundcloud-thumbnails-img-min.jpg",
     href: "https://soundcloud.com/timothy-freeman-2",
     slideTitle: "iNiNEPT on SoundCloud"
   },
   {
-    src: "../images/youtube-thumbnail1.png",
+    src: "./images/youtube-thumbnail1.png",
     href: "https://www.youtube.com/watch?v=36-5_4p7j0c",
     slideTitle: "Hand on My Rifle (Music Video)"
   },
   {
-    src: "../images/cryingInRain-slide.png",
+    src: "./images/crying-in-the-rain-slide.png",
     href: "https://www.youtube.com/watch?v=xD7qDB-ge-U",
     slideTitle: "Crying in the Rain (Music Video)"
   }
