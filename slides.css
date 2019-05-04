@@ -23,10 +23,13 @@
 }
 
 .slide-arrow {
-  display: inline-block;
   width: 25px;
   margin: auto;
+  display: inline-block;
+  outline: none;
 }
+
+/* Maybe have pseudo class for active arrow */
 
 #left-slide-arrow {
   margin-left: 6px;

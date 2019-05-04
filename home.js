@@ -1,22 +1,6 @@
 "use strict";
 let isSmallDevice = false;
 
-// $(".menu-icon-a").on("click touchstart", event => {
-//   event.preventDefault();
-//   console.log(mobileMenuVisible);
-//   if (!mobileMenuVisible) {
-//     $(".home-li").fadeOut(500);
-//     $(".in-mobile-menu").show(500);
-//     showMenuIconAnimation();
-//     mobileMenuVisible = true;
-//   } else {
-//     $(".home-li").fadeIn(500);
-//     $(".in-mobile-menu").hide(500);
-//     hideMenuIconAnimation();
-//     mobileMenuVisible = false;
-//   }
-// });
-
 const trackResize = () => {
   $(window).resize(() => {
     const width = $(window).width();
@@ -96,11 +80,6 @@ const initiateTypeWriter = () => {
 //Change background
 const backgroundImages = [
   {
-    src: "./images/new-soundcloud-thumbnails-img-min.jpg",
-    href: "https://soundcloud.com/timothy-freeman-2",
-    slideTitle: "iNiNEPT on SoundCloud"
-  },
-  {
     src: "./images/youtube-thumbnail1.png",
     href: "https://www.youtube.com/watch?v=36-5_4p7j0c",
     slideTitle: "Hand on My Rifle (Music Video)"
@@ -109,25 +88,35 @@ const backgroundImages = [
     src: "./images/crying-in-the-rain-slide.png",
     href: "https://www.youtube.com/watch?v=xD7qDB-ge-U",
     slideTitle: "Crying in the Rain (Music Video)"
+  },
+  {
+    src: "./images/new-soundcloud-thumbnails-img-min.jpg",
+    href: "https://soundcloud.com/timothy-freeman-2",
+    slideTitle: "iNiNEPT on SoundCloud"
   }
 ];
 
-const initiateSlideshow = (images, index) => {
-  $(".slides").css("backgroundImage", `url(${images[index].src})`);
-  $(".slide-link").attr("href", images[index].href);
-  $(".slide-title").text(images[index].slideTitle);
-  index++;
-  slideshow(images, index);
-};
-
-const slideshow = (images, index) => {
-  const { src, href, slideTitle } = images[index];
-  const numberOfBackgrounds = images.length;
-  setTimeout(() => {
-    $(".slides").css("backgroundImage", `url(${src})`);
-    $(".slide-link").attr("href", href);
-    $(".slide-title").text(slideTitle);
-    index = (index + 1) % numberOfBackgrounds;
+class Slideshow {
+  constructor(images, index) {
+    this.images = images;
+    this.index = index;
+  }
+  runSlideshow() {
+    const timeoutInt = setTimeout(() => {
+      this.runSlideshow();
+    }, 8000);
+    $("#left-slide-arrow").on("click touchstart", () => {
+      console.log(timeoutInt);
+      clearTimeout(timeoutInt);
+      this.priorSlide();
+      this.runSlideshow();
+      console.log(this.index);
+    });
+    $("#right-slide-arrow").on("click touchstart", () => {
+      this.nextSlide();
+    });
+    const { src, href, slideTitle } = this.images[this.index];
+    const numberOfBackgrounds = this.images.length;
     if (
       $(window).width() <= 414 &&
       src === "./images/crying-in-the-rain-slide.png"
@@ -136,24 +125,43 @@ const slideshow = (images, index) => {
     } else {
       $(".slides").css("background-position", "left");
     }
-    slideshow(images, index);
-  }, 10000);
-};
+    $(".slides").css("backgroundImage", `url(${src})`);
+    $(".slide-link").attr("href", href);
+    $(".slide-title").text(slideTitle);
+    this.index = (this.index + 1) % numberOfBackgrounds;
+  }
+  priorSlide() {
+    if (this.index === 0) {
+      this.index = 2;
+    } else {
+      this.index--;
+    }
+  }
+  nextSlide() {}
+}
+
+//Naming slideshow
+const slideshow = new Slideshow(backgroundImages, 0);
 
 $(() => {
   trackResize();
   initiateTypeWriter();
-  initiateSlideshow(backgroundImages, 0);
-  // slideshowControls();
+  // slideshow.initiateSlideshow();
+  slideshow.runSlideshow();
+  //initiateSlideshow(backgroundImages, 0);
+  //slideshowControls();
 });
 
 const slideshowControls = () => {
   $("#left-slide-arrow").on("click touchstart", e => {
-    index = (index - 1) % numberOfBackgrounds;
-    slideshow(images, index);
+    console.log("left");
+    slideshow.priorSlide();
+    //index = (index - 1) % numberOfBackgrounds;
+    //slideshow(images, index);
   });
   $("#right-slide-arrow").on("click touchstart", e => {
-    index = (index + 1) % numberOfBackgrounds;
-    slideshow(images, index);
+    console.log("right");
+    //index = (index + 1) % numberOfBackgrounds;
+    //slideshow(images, index);
   });
 };
