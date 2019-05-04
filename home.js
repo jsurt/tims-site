@@ -132,7 +132,6 @@ const slideshow = (images, index) => {
       $(window).width() <= 414 &&
       src === "./images/crying-in-the-rain-slide.png"
     ) {
-      console.log("bingo");
       $(".slides").css("background-position", "45%");
     } else {
       $(".slides").css("background-position", "left");
