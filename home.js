@@ -100,23 +100,17 @@ class Slideshow {
   constructor(images, index) {
     this.images = images;
     this.index = index;
+    this.timeoutID = null;
   }
-  runSlideshow() {
-    const timeoutInt = setTimeout(() => {
-      this.runSlideshow();
-    }, 8000);
-    $("#left-slide-arrow").on("click touchstart", () => {
-      console.log(timeoutInt);
-      clearTimeout(timeoutInt);
-      this.priorSlide();
-      this.runSlideshow();
-      console.log(this.index);
-    });
-    $("#right-slide-arrow").on("click touchstart", () => {
-      this.nextSlide();
-    });
+  startSlideshow() {
     const { src, href, slideTitle } = this.images[this.index];
-    const numberOfBackgrounds = this.images.length;
+    this.insertImages(src, href, slideTitle);
+    this.timeoutID = setTimeout(() => this.cycleImages(), 5000);
+  }
+  stopSlideshow() {
+    clearTimeout(this.timeoutID);
+  }
+  insertImages(src, href, title) {
     if (
       $(window).width() <= 414 &&
       src === "./images/crying-in-the-rain-slide.png"
@@ -127,41 +121,46 @@ class Slideshow {
     }
     $(".slides").css("backgroundImage", `url(${src})`);
     $(".slide-link").attr("href", href);
-    $(".slide-title").text(slideTitle);
-    this.index = (this.index + 1) % numberOfBackgrounds;
+    $(".slide-title").text(title);
   }
-  priorSlide() {
-    if (this.index === 0) {
+  cycleImages() {
+    this.index = (this.index + 1) % this.images.length;
+    this.startSlideshow();
+  }
+  goBack() {
+    this.stopSlideshow();
+    if (this.index <= 0) {
       this.index = 2;
     } else {
       this.index--;
     }
+    this.startSlideshow();
   }
-  nextSlide() {}
+  goForward() {
+    this.stopSlideshow();
+    if (this.index >= 2) {
+      this.index = 0;
+    } else {
+      this.index++;
+    }
+    this.startSlideshow();
+  }
 }
 
 //Naming slideshow
 const slideshow = new Slideshow(backgroundImages, 0);
 
+//Traversing through slideshow
+$("#left-slide-arrow").on("click touchend", () => {
+  slideshow.goBack();
+});
+
+$("#right-slide-arrow").on("click touchend", () => {
+  slideshow.goForward();
+});
+
 $(() => {
   trackResize();
   initiateTypeWriter();
-  // slideshow.initiateSlideshow();
-  slideshow.runSlideshow();
-  //initiateSlideshow(backgroundImages, 0);
-  //slideshowControls();
+  slideshow.startSlideshow();
 });
-
-const slideshowControls = () => {
-  $("#left-slide-arrow").on("click touchstart", e => {
-    console.log("left");
-    slideshow.priorSlide();
-    //index = (index - 1) % numberOfBackgrounds;
-    //slideshow(images, index);
-  });
-  $("#right-slide-arrow").on("click touchstart", e => {
-    console.log("right");
-    //index = (index + 1) % numberOfBackgrounds;
-    //slideshow(images, index);
-  });
-};
