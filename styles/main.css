@@ -88,7 +88,7 @@ html, body {
 
 .bottom-half-wrap {
   height: 45%;
-  background: url("../../images/dark-triangles.png");
+  background: url("./../images/dark-triangles.png");
 }
 
 .home-header {
