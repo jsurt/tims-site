@@ -51,7 +51,6 @@ html, body {
   font-family: 'Raleway', sans-serif;
   text-decoration: none;
   color: #ffffff;
-  /* color: #dbff4e; */
 }
 
 .nav-home-logo {
@@ -70,14 +69,6 @@ html, body {
 
 .top-half-wrap {
   height: 55%;
-  /* display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  background-position-y: -100px;
-  background-image: url(./images/dallas-skyline-night1.png); */
 }
 
 .opaque-background1, .opaque-background2 {
@@ -109,23 +100,6 @@ html, body {
 
 .js-typewriter-words {
   border-bottom: 2px solid #fe0000;
-}
-
-/* .typewriter-words-dash {
-  margin-left: 50px;
-} */
-
-/* .home-background-image {
-  height: 100%;
-} */
-
-/* For menu icon */
-.menu-icon-line {
-  width: 18px;
-  height: 3px;
-  background: #ffffff;
-  margin-top: 2px;
-  margin-bottom: 2px;
 }
 
 .home-footer {
