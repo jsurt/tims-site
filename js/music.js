@@ -1,6 +1,6 @@
 const sdURLs = [
-  "http://soundcloud.com/oembed?format=json&url=https://soundcloud.com/timothy-freeman-2/neon-midnight&iframe=true",
-  "http://soundcloud.com/oembed?format=json&url=https://soundcloud.com/timothy-freeman-2/schedule-i&iframe=true"
+  "https://soundcloud.com/oembed?format=json&url=https://soundcloud.com/timothy-freeman-2/neon-midnight&iframe=true",
+  "https://soundcloud.com/oembed?format=json&url=https://soundcloud.com/timothy-freeman-2/schedule-i&iframe=true"
 ];
 
 function createCORSRequest(method, url) {
