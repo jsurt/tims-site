@@ -2,6 +2,10 @@
   height: 100%;
 }
 
+.slides-wrap {
+  background: #fff;
+}
+
 .slides {
   background-size: cover;
   background-position: left;
