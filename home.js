@@ -82,17 +82,17 @@ const backgroundImages = [
   {
     src: "./images/youtube-thumbnail1.png",
     href: "https://www.youtube.com/watch?v=36-5_4p7j0c",
-    slideTitle: "Hand on My Rifle (Music Video)"
+    title: "Hand on My Rifle (Music Video)"
   },
   {
     src: "./images/crying-in-the-rain-slide.png",
     href: "https://www.youtube.com/watch?v=xD7qDB-ge-U",
-    slideTitle: "Crying in the Rain (Music Video)"
+    title: "Crying in the Rain (Music Video)"
   },
   {
     src: "./images/new-soundcloud-thumbnails-img-min.jpg",
     href: "https://soundcloud.com/timothy-freeman-2",
-    slideTitle: "iNiNEPT on SoundCloud"
+    title: "iNiNEPT on SoundCloud"
   }
 ];
 
@@ -103,9 +103,9 @@ class Slideshow {
     this.timeoutID = null;
   }
   startSlideshow() {
-    const { src, href, slideTitle } = this.images[this.index];
-    this.insertImages(src, href, slideTitle);
-    this.timeoutID = setTimeout(() => this.cycleImages(), 5000);
+    const { src, href, title } = this.images[this.index];
+    this.insertImages(src, href, title);
+    this.timeoutID = setTimeout(() => this.cycleImages(), 6000);
   }
   stopSlideshow() {
     clearTimeout(this.timeoutID);
