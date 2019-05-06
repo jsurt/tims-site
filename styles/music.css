@@ -1,4 +1,5 @@
 iframe {
   height: 150px;
   width: 320px;
+  display: block;
 }

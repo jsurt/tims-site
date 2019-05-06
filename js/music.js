@@ -3,6 +3,36 @@ const sdURLs = [
   "https://soundcloud.com/oembed?format=json&url=https://soundcloud.com/timothy-freeman-2/schedule-i&iframe=true"
 ];
 
+//Attempt at CORS with jQuery
+const getData = url => {
+  const data = {
+    url,
+    type: "GET",
+    contentType: "text/plain",
+    xhrFields: {
+      withCredentials: false
+    },
+    success: data => {
+      console.log(data);
+      insertSDWidgets(data.html);
+    },
+    error: err => console.log(err)
+  };
+  $.ajax(data);
+};
+
+const getSDWidgets = urls => {
+  for (let i = 0; i < urls.length; i++) {
+    getData(urls[i]);
+  }
+};
+
+const insertSDWidgets = html => {
+  $(".sd-widgets-wrap").append(html);
+};
+
+getSDWidgets(sdURLs);
+
 function createCORSRequest(method, url) {
   var xhr = new XMLHttpRequest();
   if ("withCredentials" in xhr) {
@@ -42,15 +72,3 @@ function makeCorsRequest(url) {
 
   xhr.send();
 }
-
-const getSDWidgets = urls => {
-  for (let i = 0; i < urls.length; i++) {
-    makeCorsRequest(urls[i]);
-  }
-};
-
-const insertSDWidgets = html => {
-  $(".sd-widgets-wrap").append(html);
-};
-
-getSDWidgets(sdURLs);
